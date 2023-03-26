@@ -1,0 +1,131 @@
+
+# Packages
+
+One of the best features of R are the large number of contributed packages from the statistical community.
+The list of all packages on CRAN is impressive!
+Take a look at it [here](https://cran.r-project.org/web/packages/available_packages_by_name.html).
+You find R packages for almost any statistical method out there.
+Many statisticians provide R packages to accompany their research.
+Some packages also provide additional functionality for R or include datasets.
+
+## The `xts` package
+
+Let us look at a time series specific package: the `xts` package.
+It can be installed using the function `install.packages("xts")`.
+Once installed, it only has to be loaded at the beginning of a new R session, which is done with the command `library(xts)`.
+
+```{r, eval=FALSE}
+install.packages("xts")
+library(xts)
+```
+
+The `xts` package provides the class `xts`, which has certain advantages over `ts`.
+A `ts` object can specify the frequency of a time series only as a portion of a year (1 for yearly, 4 for quarterly, 12 for monthly data).
+This scheme is convenient for regular macroeconomic time series but impractical for daily data (leap year problem), high-frequency data, or irregularly collected data.
+In an `xts` object, we are much more flexible and manually assign a specific time index to each observation in the time series.
+
+```{r, echo=FALSE, output=FALSE}
+library(xts)
+```
+
+```{r, fig.height=2.5, fig.width=7}
+myts = ts(c(66, 76, 55, 12, 4, 66, 8, 99), start = 2020, frequency = 4)
+as.xts(myts)  # convert a ts object into an xts object
+# we may assign irregular time points:
+dates = seq.Date(as.Date("2023-01-01"), by = 7, length.out = 7)
+dates[8] = as.Date("2023-03-01")
+my.xts = xts(myts, dates)
+plot(my.xts)
+```
+
+## Data packages
+
+For teaching, I have created the package `teachingdata`, which contains some current datasets.
+The package is not available on CRAN (your package must meet specific quality standards and go through a review process to be accepted there), but I have created a GitHub repository to make it accessible.
+We need the package `remotes` and its function `install_github()` to install a package from a GitHub repository.
+
+```{r, eval=FALSE}
+install.packages("remotes")
+remotes::install_github("ottosven/teachingdata")
+```
+
+Let's have a closer look at the data from the `teachingdata` package.
+
+```{r, fig.height=4}
+library(teachingdata)
+data(package = "teachingdata")
+plot(gdp, main = "Quarterly GDP Germany")
+plot(infl, main="Monthly CPI inflation rate Germany")
+plot(temp, main="Average temperature Germany")
+plot(covidcases$date, covidcases$GER, type="l", 
+     main="Incidence number of reported Covid-19 infections Germany")
+```
+
+## The `tidyverse`
+
+The `tidyverse` is a collection of packages that lets you import, manipulate, explore, visualize, and model data in a harmonized and consistent way.
+
+Installing the `tidyverse` package:
+
+```{r installTidyverse, echo=TRUE, eval=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+```{r, echo=FALSE, output=FALSE}
+library(tidyverse)
+library(tsibble)
+library(feasts)
+```
+
+In this lecture, we will mainly use R to theoretically understand the learned statistical and econometric methods and apply them illustratively.
+For this purpose, base R is entirely sufficient.
+However, `tidyverse` has become state of the art for applied work with large data sets and is especially recommended for data management and visualization.
+
+To give you a flavor of the tidyverse, let us briefly discuss the `ggplot2`, `tibble` and `tsibble` packages.
+Nice plots can be produced using the R-package `ggplot2`.
+Let's plot the `iris` dataset, which is contained in base R.
+
+```{r, fig.height=4}
+class(iris) # iris is a data.frame
+iris |> 
+  ggplot(aes(x = Sepal.Length, y = Petal.Length, color = Species)) + 
+  geom_point()
+```
+
+A `data.frame` in the tidyverse is called `tibble`.
+A `tibble` is sometimes more flexible and convenient for manipulating and printing data.
+Let's transform the iris data frame into a tibble.
+
+```{r}
+iris.tbl = as_tibble(iris) 
+iris.tbl # iris.tbl is a tibble
+```
+
+As an extension, a `tsibble` object is a `tibble` with an additional time series structure.
+It contains a specific *index* variable corresponding to the observation's time index.
+Let us convert the `covidcases` data into a `tsibble`.
+To visualize a `tsibble` we also need the `feasts` package.
+
+```{r, eval=FALSE}
+library(tsibble)
+library(feasts)
+```
+
+In a `tsibble` object, we can define so-called *key* variables, which define the subjects or individuals measured over time.
+Key variables also allow easy processing of panel data in R.
+
+In the `covidcases` example, the key variables are the federal states, and the time series is the incidence numbers.
+Since a simultaneous display of the curves of all federal states would produce a very cluttered plot, we select only the total Germany, Nordrhein-Westfalen, and Berlin.
+The different steps can be represented in tidyverse as a sequence of multiple operations using the pipe operator `|>`.
+
+```{r, fig.height=4}
+covid.tsibble = as_tsibble(covidcases, index=date) |>
+  pivot_longer(-date, names_to = "state", values_to = "incidence") |>
+  filter(state %in% c("GER", "NW", "BE"))
+covid.tsibble
+covid.tsibble |>
+  autoplot(incidence) + theme(axis.title.x=element_blank())
+```
+
+For an introduction to the `tidyverse` and to learn more about the packages and functions used above, have a look at the book [R for Data Science](https://r4ds.hadley.nz/).

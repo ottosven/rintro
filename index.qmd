@@ -1,0 +1,29 @@
+# Welcome {-}
+
+This tutorial aims to serve as an introduction to the software package R.
+Other excellent and much more exhaustive tutorials can be found at the following links:
+
+-   An interactive R-package for learning R: [swirl](https://swirlstats.com/) (highly recommended for beginners).
+-   Interactive R courses at [Datacamp](https://www.datacamp.com/courses/free-introduction-to-r) and [Coursera](https://www.coursera.org/learn/r-programming) (free, but registration required).
+-   Video series by Nick Huntington-Klein: [Introduction to R for Economists](https://www.youtube.com/watch?v=kD1qq5tBrLg&list=PLcTBLulJV_AIuXCxr__V8XAzWZosMQIfW).
+-   [The official introduction](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf) and reference cards for [basic R](http://cran.r-project.org/doc/contrib/refcard.pdf) and [time series analysis](https://cran.r-project.org/doc/contrib/Ricci-refcard-ts.pdf).
+-   Some excellent books:
+    -   [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) (for absolute beginners)
+    -   [R for Data Science](https://r4ds.hadley.nz/) (R and the tidyverse)
+    -   [Advanced R](https://adv-r.hadley.nz/) (improve your programming skills)
+    -   [Forecasting: Principles and Practice](https://otexts.com/fpp3/) (time series analysis in R)
+    -   [R Packages](https://r-pkgs.org/) (write your own R package)
+    -   [HappyGitWithR](https://happygitwithr.com/) (version control with RStudio)
+
+## Why R?
+
+-   R is **free** of charge. On the R project webpage [cran.r-project.org](https://cran.r-project.org/), you can download R for Windows, Mac OS, or Linux. Windows users can also directly follow this link: [cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
+-   You can use R via a terminal or install an IDE, which is much more convenient. The celebrated IDE **RStudio** for R is also **free** of charge. Download RStudio here: [posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/). Make sure that you install R before installing RStudio.
+-   Within RStudio, you can use **Quarto**, which provides an authoring framework to export your R code/outputs/plots together with LaTeX formulas and text as a PDF file or website in an appealing way. Have a look [here](https://quarto.org/docs/get-started/hello/rstudio.html). 
+This website is also built with Quarto.
+You may want to use Quarto for your assignments, term papers, or thesis.
+-   R is equipped with one of the most flexible and powerful graphics routines available anywhere. Check out these repositories with examples of appealing and informative R graphs: [Clean Graphs](http://shinyapps.org/apps/RGraphCompendium/index.php), [R Graph Catalog](https://shiny.srvanderplas.com/r-graph-catalog/), [Publication Ready Plots](http://www.sthda.com/english/rpkgs/ggpubr/).
+-   R is the de-facto standard for statistical science.
+
+
+

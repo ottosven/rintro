@@ -1,0 +1,238 @@
+
+# Base R
+
+## Short Glossary
+
+Let's start the tutorial with a (very) short glossary:
+
+-   **Console**: The thing with the `>` sign at the beginning.
+-   **Script file**: An ordinary text file with suffix `.R`. For instance, `yourfilename.R`.
+-   **Working directory**: The file directory you are working in. If no directory is explicitly specified when loading data, then R assumes that the data is located in the *working directory*. Useful commands: with `getwd()`, you get the location of your current working directory, and `setwd()` allows you to set a new location for it.
+-   **Workspace**: This is a hidden file (stored in the working directory as *.RData*) where all objects you use (e.g., data, matrices, vectors, variables, functions, etc.) are stored. When you close RStudio, you will be asked if you want to save or delete the session's *workspace*. If you save it, it will be loaded automatically with the next R session, provided you start R in the corresponding working directory. Useful commands: `ls()` shows all elements in our current workspace, and `rm(list=ls())` deletes all elements in our current workspace.
+
+## First Steps
+
+A good idea is to use a script file like **myscipt.R** to store your R commands.
+You can send single lines or marked areas of your R code to the console by pressing the **CTRL+ENTER** keys.
+
+To start with baby steps, we do some simple calculations:
+
+```{r}
+2+2 # addition
+2*2 # multiplication
+2/2
+2-2
+2^3 # exponentiate
+```
+
+*Note*: Anything written after the `#` sign will be ignored by R, which is very useful for commenting on your code.
+
+The **assignment operator** `<-` will be your most often-used tool.
+Here is an example of creating a **scalar** variable:
+
+```{r}
+x <- 4 
+x
+4 -> x # possible but unusual
+x
+x = 4
+x
+```
+
+*Note*: The R community loves the `<-` assignment operator.
+Alternatively, you can use the `=` operator.
+
+## Vectors and functions
+
+And now a more interesting object - a **vector**:
+
+```{r}
+y = c(2,7,4,1)
+y
+```
+
+The command `ls()` shows the total content of your current workspace, and the command `rm(list=ls())` deletes all elements of your current workspace:
+
+```{r}
+ls()
+rm(list=ls())
+ls()
+
+```
+
+Note: RStudio's **Environment** pane also lists all the elements in your current workspace.
+That is, the command `ls()` becomes a bit obsolete when working with RStudio.
+
+Let's try how we can compute with vectors and scalars in R.
+
+```{r}
+x = 4
+y = c(2,7,4,1)
+
+x*y # each element in the vector y is multiplied by the scalar x
+y*y # a term-by-term product of the elements in y
+
+```
+
+The term-by-term execution, as in the above example, `y*y`, is a main strength of R.
+We can conduct many operations **vector-wisely**:
+
+```{r}
+y^2
+log(y)
+exp(y)
+y-mean(y)
+(y-mean(y))/sd(y) # standardization 
+```
+
+Element-wise operations are a central characteristic of matrix-based languages like R (or Matlab).
+Other programming languages often have to use **loops** instead:
+
+```{r, eval=FALSE}
+N = length(y)
+1:N
+
+y.sq = rep(0,N)
+y.sq
+
+for(i in 1:N){
+  y.sq[i] = y[i]^2
+  if(i == N){
+    print(y.sq)
+  }
+}
+```
+
+The `for()`-loop is the most common loop, but there is also a `while()`-loop and a `repeat()`-loop.
+However, loops in R can be relatively slow.
+Therefore, try to avoid them!
+
+Useful commands to produce **sequences** of numbers:
+
+```{r, eval=FALSE}
+1:10
+-10:10
+?seq # Help for the seq()-function
+seq(from=1, to=100, by=7) # sequence generation
+rep(0,10) # replicate elements
+```
+
+The `[]`-operator **selects elements** of vectors:
+
+```{r}
+y[c(2,4)]
+```
+
+Element selections can be made on a more **logical** basis, too.
+For example, if you want only the elements of the vector `y` that are strictly greater than 2:
+
+```{r}
+y[y>2]
+
+# Note that this gives you a boolean vector:
+y>2
+```
+
+*Note*: Logical operations return so-called **boolean** objects, i.e., a `TRUE` or a `FALSE`.
+For instance, if we ask R whether `1>2`, we get the answer `FALSE`.
+
+## Further Data Objects
+
+Besides the classical data objects like scalars and vectors, there are many other objects in R:
+
+### 1. The matrix: {.unnumbered}
+
+A `matrix` is a rectangular array of numbers.
+
+```{r}
+mymatrix = matrix(data=1:16, nrow=4, ncol=4)
+mymatrix
+```
+
+Matrices are extremely useful for theoretically analyzing statistical methods and implementing them practically.
+<!-- To refresh matrix algebra and learn its implementation in R, check out the  on matrix algebra in R. -->
+
+### 2. The list: {.unnumbered}
+
+In `lists`, you can organize different kinds of data.
+E.g., consider the following example:
+
+```{r}
+mylist = list(
+  "Some_Numbers" = c(66, 76, 55, 12, 4, 66, 8, 99), 
+  "Animals"      = c("Rabbit", "Cat", "Elefant"),
+  "My_Series"    = c(30:1)
+) 
+```
+
+A very useful function to find specific values and entries within lists is the `str()`-function:
+
+```{r}
+str(mylist)
+```
+
+### 3. The data frame: {.unnumbered}
+
+A `data.frame` is a `list` object with more formal restrictions (e.g., an equal number of rows for all columns).
+As indicated by its name, a `data.frame` object is designed to store data:
+
+```{r}
+mydataframe = data.frame(
+  "Credit_Default"   = c( 0, 0, 1, 0, 1, 1), 
+  "Age"              = c(35,41,55,36,44,26), 
+  "Loan_in_1000_EUR" = c(55,65,23,12,98,76)
+) 
+```
+
+The `data()` command lists all sample data sets available in R.
+Let us have a look at the dataset `mtcars`.
+It is a `dara.frame` object and contains data on several aspects of 32 automobiles from 1974.
+
+```{r}
+mtcars
+```
+
+Let's have a look at the variables `mpg` (miles per gallon) and `wt` weight (in 1000 lbs). We can use the function `subset` to condense the dataframe to the aspects we need
+
+```{r}
+plot(subset(mtcars, select = c(wt, mpg)))
+```
+
+A `data.frame` is also helpful in a time series context.
+Since time series data typically include a calendar date for each observation, the observation and date can be stored together as a `data.frame`.
+R provides the class `Date` for calendar dates, which can be generated with the function `as.Date()`.
+
+```{r}
+d = as.Date("2021-04-01") # a data object to store dates
+class(d) # to get the object class
+myseries = c(16,17,18,16,15,19)
+mydates = seq.Date(as.Date("2021-04-01"), by=1, length.out = 6)
+mytimeseries = data.frame(mydates, myseries)
+mytimeseries
+```
+
+### 4. The ts object: {.unnumbered}
+
+A `ts` (time series) object is tailored explicitly to time series with a yearly time basis and an equidistant observation horizon, such as annual, quarterly, and monthly data.
+It assigns a specific year/quarter/month to each vector entry.
+
+```{r}
+myts = ts(c(66, 76, 55, 12, 4, 66, 8, 99), start = 2020, frequency = 4)
+myts
+anothertimeseries = ts(1:50, start = 2015, frequency = 12)
+anothertimeseries
+# The window() command selects the time series observations for a given subperiod
+window(anothertimeseries, start=2015.5, end=2017.5)
+```
+
+The `data()` command lists all sample data sets available in R.
+Let us have a look at the dataset `AirPassengers`.
+It is a `ts` object and contains data on monthly totals of international airline passengers from 1949 to 1960.
+
+```{r, fig.height=4}
+data() # lists all datasets currently loaded in the R environment
+?AirPassengers # get more information about the dataset
+AirPassengers
+class(AirPassengers)  # AirPassengers is a ts object
+plot(AirPassengers)
+```
