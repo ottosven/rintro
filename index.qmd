@@ -23,7 +23,13 @@ Other excellent and much more exhaustive tutorials can be found at the following
 This website is also built with Quarto.
 You may want to use Quarto for your assignments, term papers, or thesis.
 -   R is equipped with one of the most flexible and powerful graphics routines available anywhere. Check out these repositories with examples of appealing and informative R graphs: [Clean Graphs](http://shinyapps.org/apps/RGraphCompendium/index.php), [R Graph Catalog](https://shiny.srvanderplas.com/r-graph-catalog/), [Publication Ready Plots](http://www.sthda.com/english/rpkgs/ggpubr/).
+-   One of the best features of R are the large number of contributed packages from the statistical community.
+You find R packages for almost any statistical method out there and many statisticians provide R packages to accompany their research.
 -   R is the de-facto standard for statistical science.
 
 
+## Matrix algebra
 
+R is a matrix-based programming language. 
+Matrix algebra provides an efficient framework for analyzing and implementing econometric methods.
+To refresh your matrix algebra skills and to learn how to use it in R, please check out my [**Crash Course on Matrix Algebra in R**](https://matrix.svenotto.com/).

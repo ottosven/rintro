@@ -13,7 +13,7 @@ Let's start the tutorial with a (very) short glossary:
 ## First Steps
 
 A good idea is to use a script file like **myscipt.R** to store your R commands.
-You can send single lines or marked areas of your R code to the console by pressing the **CTRL+ENTER** keys.
+You can send single lines or marked areas of your R code to the console by pressing the **CTRL+RETURN** (STRG+ENTER) keys.
 
 To start with baby steps, we do some simple calculations:
 
@@ -140,7 +140,7 @@ For instance, if we ask R whether `1>2`, we get the answer `FALSE`.
 
 Besides the classical data objects like scalars and vectors, there are many other objects in R:
 
-### 1. The matrix: {.unnumbered}
+### The matrix
 
 A `matrix` is a rectangular array of numbers.
 
@@ -150,9 +150,14 @@ mymatrix
 ```
 
 Matrices are extremely useful for theoretically analyzing statistical methods and implementing them practically.
-<!-- To refresh matrix algebra and learn its implementation in R, check out the  on matrix algebra in R. -->
 
-### 2. The list: {.unnumbered}
+::: {.callout-tip}
+## Matrix Algebra in R
+To refresh your matrix algebra skills with implementations in R, check out my [**Crash Course on Matrix Algebra in R**](https://matrix.svenotto.com/).
+:::
+
+
+### The list
 
 In `lists`, you can organize different kinds of data.
 E.g., consider the following example:
@@ -171,7 +176,7 @@ A very useful function to find specific values and entries within lists is the `
 str(mylist)
 ```
 
-### 3. The data frame: {.unnumbered}
+### The data frame
 
 A `data.frame` is a `list` object with more formal restrictions (e.g., an equal number of rows for all columns).
 As indicated by its name, a `data.frame` object is designed to store data:
@@ -192,13 +197,14 @@ It is a `dara.frame` object and contains data on several aspects of 32 automobil
 mtcars
 ```
 
-Let's have a look at the variables `mpg` (miles per gallon) and `wt` weight (in 1000 lbs). We can use the function `subset` to condense the dataframe to the aspects we need
+With the function `subset` we can select variables and subsets of a dataframe.
+Let's create a scatterplot of the variables `mpg` (miles per gallon) and `wt` weight (in 1000 lbs).
 
 ```{r}
 plot(subset(mtcars, select = c(wt, mpg)))
 ```
 
-A `data.frame` is also helpful in a time series context.
+A `data.frame` is also useful in a time series context.
 Since time series data typically include a calendar date for each observation, the observation and date can be stored together as a `data.frame`.
 R provides the class `Date` for calendar dates, which can be generated with the function `as.Date()`.
 
@@ -211,7 +217,7 @@ mytimeseries = data.frame(mydates, myseries)
 mytimeseries
 ```
 
-### 4. The ts object: {.unnumbered}
+### The ts object
 
 A `ts` (time series) object is tailored explicitly to time series with a yearly time basis and an equidistant observation horizon, such as annual, quarterly, and monthly data.
 It assigns a specific year/quarter/month to each vector entry.

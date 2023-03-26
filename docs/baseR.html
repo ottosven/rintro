@@ -179,10 +179,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li>
 <a href="#further-data-objects" id="toc-further-data-objects" class="nav-link" data-scroll-target="#further-data-objects"><span class="toc-section-number">1.4</span>  Further Data Objects</a>
   <ul class="collapse">
-<li><a href="#the-matrix" id="toc-the-matrix" class="nav-link" data-scroll-target="#the-matrix">1. The matrix:</a></li>
-  <li><a href="#the-list" id="toc-the-list" class="nav-link" data-scroll-target="#the-list">2. The list:</a></li>
-  <li><a href="#the-data-frame" id="toc-the-data-frame" class="nav-link" data-scroll-target="#the-data-frame">3. The data frame:</a></li>
-  <li><a href="#the-ts-object" id="toc-the-ts-object" class="nav-link" data-scroll-target="#the-ts-object">4. The ts object:</a></li>
+<li><a href="#the-matrix" id="toc-the-matrix" class="nav-link" data-scroll-target="#the-matrix"><span class="toc-section-number">1.4.1</span>  The matrix</a></li>
+  <li><a href="#the-list" id="toc-the-list" class="nav-link" data-scroll-target="#the-list"><span class="toc-section-number">1.4.2</span>  The list</a></li>
+  <li><a href="#the-data-frame" id="toc-the-data-frame" class="nav-link" data-scroll-target="#the-data-frame"><span class="toc-section-number">1.4.3</span>  The data frame</a></li>
+  <li><a href="#the-ts-object" id="toc-the-ts-object" class="nav-link" data-scroll-target="#the-ts-object"><span class="toc-section-number">1.4.4</span>  The ts object</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <strong>Workspace</strong>: This is a hidden file (stored in the working directory as <em>.RData</em>) where all objects you use (e.g., data, matrices, vectors, variables, functions, etc.) are stored. When you close RStudio, you will be asked if you want to save or delete the session’s <em>workspace</em>. If you save it, it will be loaded automatically with the next R session, provided you start R in the corresponding working directory. Useful commands: <code><a href="https://rdrr.io/r/base/ls.html">ls()</a></code> shows all elements in our current workspace, and <code>rm(list=ls())</code> deletes all elements in our current workspace.</li>
 </ul></section><section id="first-steps" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="first-steps">
 <span class="header-section-number">1.2</span> First Steps</h2>
-<p>A good idea is to use a script file like <strong>myscipt.R</strong> to store your R commands. You can send single lines or marked areas of your R code to the console by pressing the <strong>CTRL+ENTER</strong> keys.</p>
+<p>A good idea is to use a script file like <strong>myscipt.R</strong> to store your R commands. You can send single lines or marked areas of your R code to the console by pressing the <strong>CTRL+RETURN</strong> (STRG+ENTER) keys.</p>
 <p>To start with baby steps, we do some simple calculations:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2</span><span class="op">+</span><span class="fl">2</span> <span class="co"># addition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -369,7 +369,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section id="further-data-objects" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="further-data-objects">
 <span class="header-section-number">1.4</span> Further Data Objects</h2>
 <p>Besides the classical data objects like scalars and vectors, there are many other objects in R:</p>
-<section id="the-matrix" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-matrix">1. The matrix:</h3>
+<section id="the-matrix" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="the-matrix">
+<span class="header-section-number">1.4.1</span> The matrix</h3>
 <p>A <code>matrix</code> is a rectangular array of numbers.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mymatrix</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>data<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span>, nrow<span class="op">=</span><span class="fl">4</span>, ncol<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
@@ -382,8 +383,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [4,]    4    8   12   16</code></pre>
 </div>
 </div>
-<p>Matrices are extremely useful for theoretically analyzing statistical methods and implementing them practically. <!-- To refresh matrix algebra and learn its implementation in R, check out the  on matrix algebra in R. --></p>
-</section><section id="the-list" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-list">2. The list:</h3>
+<p>Matrices are extremely useful for theoretically analyzing statistical methods and implementing them practically.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Matrix Algebra in R
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To refresh your matrix algebra skills with implementations in R, check out my <a href="https://matrix.svenotto.com/"><strong>Crash Course on Matrix Algebra in R</strong></a>.</p>
+</div>
+</div>
+</section><section id="the-list" class="level3" data-number="1.4.2"><h3 data-number="1.4.2" class="anchored" data-anchor-id="the-list">
+<span class="header-section-number">1.4.2</span> The list</h3>
 <p>In <code>lists</code>, you can organize different kinds of data. E.g., consider the following example:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mylist</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
@@ -402,7 +417,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  $ My_Series   : int [1:30] 30 29 28 27 26 25 24 23 22 21 ...</code></pre>
 </div>
 </div>
-</section><section id="the-data-frame" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-data-frame">3. The data frame:</h3>
+</section><section id="the-data-frame" class="level3" data-number="1.4.3"><h3 data-number="1.4.3" class="anchored" data-anchor-id="the-data-frame">
+<span class="header-section-number">1.4.3</span> The data frame</h3>
 <p>A <code>data.frame</code> is a <code>list</code> object with more formal restrictions (e.g., an equal number of rows for all columns). As indicated by its name, a <code>data.frame</code> object is designed to store data:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mydataframe</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -450,7 +466,7 @@ Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
 Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
 </div>
 </div>
-<p>Let’s have a look at the variables <code>mpg</code> (miles per gallon) and <code>wt</code> weight (in 1000 lbs). We can use the function <code>subset</code> to condense the dataframe to the aspects we need</p>
+<p>With the function <code>subset</code> we can select variables and subsets of a dataframe. Let’s create a scatterplot of the variables <code>mpg</code> (miles per gallon) and <code>wt</code> weight (in 1000 lbs).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">mtcars</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">wt</span>, <span class="va">mpg</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -460,7 +476,7 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 </div>
 </div>
 </div>
-<p>A <code>data.frame</code> is also helpful in a time series context. Since time series data typically include a calendar date for each observation, the observation and date can be stored together as a <code>data.frame</code>. R provides the class <code>Date</code> for calendar dates, which can be generated with the function <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code>.</p>
+<p>A <code>data.frame</code> is also useful in a time series context. Since time series data typically include a calendar date for each observation, the observation and date can be stored together as a <code>data.frame</code>. R provides the class <code>Date</code> for calendar dates, which can be generated with the function <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-04-01"</span><span class="op">)</span> <span class="co"># a data object to store dates</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span> <span class="co"># to get the object class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -481,7 +497,8 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 6 2021-04-06       19</code></pre>
 </div>
 </div>
-</section><section id="the-ts-object" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-ts-object">4. The ts object:</h3>
+</section><section id="the-ts-object" class="level3" data-number="1.4.4"><h3 data-number="1.4.4" class="anchored" data-anchor-id="the-ts-object">
+<span class="header-section-number">1.4.4</span> The ts object</h3>
 <p>A <code>ts</code> (time series) object is tailored explicitly to time series with a yearly time basis and an equidistant observation horizon, such as annual, quarterly, and monthly data. It assigns a specific year/quarter/month to each vector entry.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">myts</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">66</span>, <span class="fl">76</span>, <span class="fl">55</span>, <span class="fl">12</span>, <span class="fl">4</span>, <span class="fl">66</span>, <span class="fl">8</span>, <span class="fl">99</span><span class="op">)</span>, start <span class="op">=</span> <span class="fl">2020</span>, frequency <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
