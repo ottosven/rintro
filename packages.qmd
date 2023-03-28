@@ -1,6 +1,9 @@
 
 # Packages
 
+All R codes of this page can be found in the R script [rintro-sec1.R](https://rintro.svenotto.com/rintro-sec2.R).
+
+
 One of the best features of R are the large number of contributed packages from the statistical community.
 The list of all packages on CRAN is impressive!
 Take a look at it [here](https://cran.r-project.org/web/packages/available_packages_by_name.html).

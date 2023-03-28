@@ -40,3 +40,4 @@ format:
 resources:
   - CNAME
   - rintro-sec1.R
+  - rintro-sec2.R

@@ -38,5 +38,6 @@ To refresh your matrix algebra skills and to learn how to use it in R, please ch
 #| echo: false
 #| output: false
 knitr::purl(input="baseR.qmd", output="rintro-sec1.R")
+# knitr::purl(input="packages.qmd", output="rintro-sec2.R")
 ```
 
