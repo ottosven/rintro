@@ -14,7 +14,7 @@ Some packages also provide additional functionality for R or include datasets.
 ## The `xts` package
 
 Let us look at a time series specific package: the `xts` package.
-It can be installed using the function `install.packages("xts")`.
+It can be installed using the `install.packages()` function.
 
 
 ```{r, eval=FALSE}
