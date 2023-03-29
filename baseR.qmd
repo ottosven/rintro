@@ -1,7 +1,7 @@
 
 # Base R
 
-All R codes of this page can be found in the R script [rintro-sec1.R](https://rintro.svenotto.com/rintro-sec1.R).
+<!-- All R codes of this page can be found in the R script [rintro-sec1.R](https://rintro.svenotto.com/rintro-sec1.R). -->
 
 ## Short Glossary
 

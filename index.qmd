@@ -37,7 +37,14 @@ To refresh your matrix algebra skills and to learn how to use it in R, please ch
 ```{r}
 #| echo: false
 #| output: false
+options(knitr.duplicate.label = "allow")
 knitr::purl(input="baseR.qmd", output="rintro-sec1.R")
-# knitr::purl(input="packages.qmd", output="rintro-sec2.R")
+knitr::purl(input="packages.qmd", output="rintro-sec2.R")
 ```
 
+## Accompanying R scripts
+
+All R codes of the different sections can be found here:
+
+- [rintro-sec1.R](https://rintro.svenotto.com/rintro-sec1.R).
+- [rintro-sec2.R](https://rintro.svenotto.com/rintro-sec2.R).
