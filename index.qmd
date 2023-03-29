@@ -34,6 +34,10 @@ R is a matrix-based programming language.
 Matrix algebra provides an efficient framework for analyzing and implementing econometric methods.
 To refresh your matrix algebra skills and to learn how to use it in R, please check out my [**Crash Course on Matrix Algebra in R**](https://matrix.svenotto.com/).
 
+
+
+## Accompanying R scripts
+
 ```{r}
 #| echo: false
 #| output: false
@@ -41,8 +45,6 @@ options(knitr.duplicate.label = "allow")
 knitr::purl(input="baseR.qmd", output="rintro-sec1.R")
 knitr::purl(input="packages.qmd", output="rintro-sec2.R")
 ```
-
-## Accompanying R scripts
 
 All R codes of the different sections can be found here:
 
