@@ -50,7 +50,7 @@ iris.tbl # iris.tbl is a tibble
 
 
 library(tsibble)
-library(feasts)
+library(fable)
 
 
 

@@ -104,11 +104,11 @@ iris.tbl # iris.tbl is a tibble
 As an extension, a `tsibble` object is a `tibble` with an additional time series structure.
 It contains a specific *index* variable corresponding to the observation's time index.
 Let us convert the `covidcases` data into a `tsibble`.
-To visualize a `tsibble` we also need the `feasts` package.
+To visualize a `tsibble` we also need the `fable` package.
 
 ```{r, message=FALSE}
 library(tsibble)
-library(feasts)
+library(fable)
 ```
 
 In a `tsibble` object, we can define so-called *key* variables, which define the subjects or individuals measured over time.
@@ -116,7 +116,7 @@ Key variables also allow easy processing of panel data in R.
 
 In the `covidcases` example, the key variables are the federal states, and the time series is the incidence numbers.
 Since a simultaneous display of the curves of all federal states would produce a very cluttered plot, we select only the total Germany, Nordrhein-Westfalen, and Berlin.
-The different steps can be represented in tidyverse as a sequence of multiple operations using the pipe operator `|>`.
+The different steps can be represented in tidyverse as a sequence of multiple operations using the pipe operator `|>` (other pipes like `%>%`do a similar job).
 
 ```{r, fig.height=4}
 covid.tsibble = as_tsibble(covidcases, index=date) |>
@@ -127,4 +127,4 @@ covid.tsibble |>
   autoplot(incidence) + theme(axis.title.x=element_blank())
 ```
 
-For an introduction to the `tidyverse` and to learn more about the packages and functions used above, have a look at the book [R for Data Science](https://r4ds.hadley.nz/).
+For an introduction to the `tidyverse` and to learn more about the packages and functions used above, have a look at the book [R for Data Science](https://r4ds.hadley.nz/). To learn more about visualizing and analyzing time series data using the `tsibble` and `fable` packages, I recommend the textbook [Forecasting: principles and practice](https://otexts.com/fpp3/).

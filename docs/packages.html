@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.56">
+<meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Getting Started with R - 2&nbsp; Packages</title>
 <style>
@@ -318,16 +318,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8          5           3.4          1.5         0.2 setosa 
  9          4.4         2.9          1.4         0.2 setosa 
 10          4.9         3.1          1.5         0.1 setosa 
-# … with 140 more rows</code></pre>
+# ℹ 140 more rows</code></pre>
 </div>
 </div>
-<p>As an extension, a <code>tsibble</code> object is a <code>tibble</code> with an additional time series structure. It contains a specific <em>index</em> variable corresponding to the observation’s time index. Let us convert the <code>covidcases</code> data into a <code>tsibble</code>. To visualize a <code>tsibble</code> we also need the <code>feasts</code> package.</p>
+<p>As an extension, a <code>tsibble</code> object is a <code>tibble</code> with an additional time series structure. It contains a specific <em>index</em> variable corresponding to the observation’s time index. Let us convert the <code>covidcases</code> data into a <code>tsibble</code>. To visualize a <code>tsibble</code> we also need the <code>fable</code> package.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tsibble.tidyverts.org">tsibble</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://feasts.tidyverts.org/">feasts</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://fable.tidyverts.org">fable</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In a <code>tsibble</code> object, we can define so-called <em>key</em> variables, which define the subjects or individuals measured over time. Key variables also allow easy processing of panel data in R.</p>
-<p>In the <code>covidcases</code> example, the key variables are the federal states, and the time series is the incidence numbers. Since a simultaneous display of the curves of all federal states would produce a very cluttered plot, we select only the total Germany, Nordrhein-Westfalen, and Berlin. The different steps can be represented in tidyverse as a sequence of multiple operations using the pipe operator <code>|&gt;</code>.</p>
+<p>In the <code>covidcases</code> example, the key variables are the federal states, and the time series is the incidence numbers. Since a simultaneous display of the curves of all federal states would produce a very cluttered plot, we select only the total Germany, Nordrhein-Westfalen, and Berlin. The different steps can be represented in tidyverse as a sequence of multiple operations using the pipe operator <code>|&gt;</code> (other pipes like <code>%&gt;%</code>do a similar job).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">covid.tsibble</span> <span class="op">=</span> <span class="fu"><a href="https://tsibble.tidyverts.org/reference/as-tsibble.html">as_tsibble</a></span><span class="op">(</span><span class="va">covidcases</span>, index<span class="op">=</span><span class="va">date</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="op">-</span><span class="va">date</span>, names_to <span class="op">=</span> <span class="st">"state"</span>, values_to <span class="op">=</span> <span class="st">"incidence"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -348,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 2021-09-13 NW         99.3
  9 2021-09-13 GER        81.8
 10 2021-09-14 BE         84.9
-# … with 1,553 more rows</code></pre>
+# ℹ 1,553 more rows</code></pre>
 </div>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">covid.tsibble</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">incidence</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.title.x<span class="op">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -359,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>For an introduction to the <code>tidyverse</code> and to learn more about the packages and functions used above, have a look at the book <a href="https://r4ds.hadley.nz/">R for Data Science</a>.</p>
+<p>For an introduction to the <code>tidyverse</code> and to learn more about the packages and functions used above, have a look at the book <a href="https://r4ds.hadley.nz/">R for Data Science</a>. To learn more about visualizing and analyzing time series data using the <code>tsibble</code> and <code>fable</code> packages, I recommend the textbook <a href="https://otexts.com/fpp3/">Forecasting: principles and practice</a>.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
