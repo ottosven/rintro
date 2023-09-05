@@ -1,5 +1,5 @@
 # rintro
-A short introduction to R
+Getting Started with R
 
 ## Acknowledgements
 
