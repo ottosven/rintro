@@ -50,3 +50,8 @@ All R codes of the different sections can be found here:
 
 - [rintro-sec1.R](https://rintro.svenotto.com/rintro-sec1.R).
 - [rintro-sec2.R](https://rintro.svenotto.com/rintro-sec2.R).
+
+
+## Comments
+
+Feedback is welcome. If you notice any typos or issues, please report them on [GitHub](https://github.com/ottosven/rintro/issues/new) or email me at sven.otto@uni-koeln.de.
