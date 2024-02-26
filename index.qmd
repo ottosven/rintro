@@ -11,6 +11,7 @@ Other excellent and much more exhaustive tutorials can be found at the following
     -   [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) (for absolute beginners)
     -   [R for Data Science](https://r4ds.hadley.nz/) (R and the tidyverse)
     -   [Advanced R](https://adv-r.hadley.nz/) (improve your programming skills)
+    -   [R Codebook](https://rc2e.com/) (proven recipes for data analysis)
     -   [Forecasting: Principles and Practice](https://otexts.com/fpp3/) (time series analysis in R)
     -   [R Packages](https://r-pkgs.org/) (write your own R package)
     -   [HappyGitWithR](https://happygitwithr.com/) (version control with RStudio)
