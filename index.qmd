@@ -5,6 +5,7 @@ Other excellent and much more exhaustive tutorials can be found at the following
 
 -   An interactive R-package for learning R: [swirl](https://swirlstats.com/) (highly recommended for beginners).
 -   Interactive R courses at [Datacamp](https://www.datacamp.com/courses/free-introduction-to-r) and [Coursera](https://www.coursera.org/learn/r-programming) (free, but registration required).
+-   Learn R in 30 minutes: [link](https://www.youtube.com/watch?v=yZ0bV2Afkjc).
 -   Video series by Nick Huntington-Klein: [Introduction to R for Economists](https://www.youtube.com/watch?v=kD1qq5tBrLg&list=PLcTBLulJV_AIuXCxr__V8XAzWZosMQIfW).
 -   [The official introduction](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf) and reference cards for [basic R](http://cran.r-project.org/doc/contrib/refcard.pdf) and [time series analysis](https://cran.r-project.org/doc/contrib/Ricci-refcard-ts.pdf).
 -   Some excellent books:
