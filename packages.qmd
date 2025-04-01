@@ -41,23 +41,23 @@ plot(my.xts)
 
 ## Data packages
 
-For teaching, I have created the package `teachingdata`, which contains some current datasets.
+For teaching, I have created the package `TeachData`, which contains some current datasets.
 The package is not available on CRAN (your package must meet specific quality standards and go through a review process to be accepted there), but I have created a GitHub repository to make it accessible.
 We need the package `remotes` and its function `install_github()` to install a package from a GitHub repository.
 
 ```{r, eval=FALSE}
 install.packages("remotes")
-remotes::install_github("ottosven/teachingdata")
+remotes::install_github("ottosven/TeachData")
 ```
 
 Let's have a closer look at the data from the `teachingdata` package.
 
 ```{r, fig.height=4}
-library(teachingdata)
-data(package = "teachingdata")
+library(TeachData)
+data(package = "TeachData")
 plot(gdp, main = "Quarterly GDP Germany")
 plot(infl, main="Monthly CPI inflation rate Germany")
-plot(temp, main="Average temperature Germany")
+plot(temperature.y, main="Average temperature Germany")
 plot(covidcases$date, covidcases$GER, type="l", 
      main="Incidence number of reported Covid-19 infections Germany")
 ```

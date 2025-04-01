@@ -15,15 +15,15 @@ plot(my.xts)
 
 
 install.packages("remotes")
-remotes::install_github("ottosven/teachingdata")
+remotes::install_github("ottosven/TeachData")
 
 
 
-library(teachingdata)
-data(package = "teachingdata")
+library(TeachData)
+data(package = "TeachData")
 plot(gdp, main = "Quarterly GDP Germany")
 plot(infl, main="Monthly CPI inflation rate Germany")
-plot(temp, main="Average temperature Germany")
+plot(temperature.y, main="Average temperature Germany")
 plot(covidcases$date, covidcases$GER, type="l", 
      main="Incidence number of reported Covid-19 infections Germany")
 
