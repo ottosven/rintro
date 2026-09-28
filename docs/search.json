@@ -40,11 +40,11 @@
     ]
   },
   {
-    "objectID": "index.html#comments",
-    "href": "index.html#comments",
+    "objectID": "index.html#feedback-and-acknowledgements",
+    "href": "index.html#feedback-and-acknowledgements",
     "title": "Getting Started with R",
-    "section": "Comments",
-    "text": "Comments\nFeedback is welcome. If you notice any typos or issues, please report them on GitHub or email me at sven.otto@uni-koeln.de.",
+    "section": "Feedback and acknowledgements",
+    "text": "Feedback and acknowledgements\nFeedback is welcome. If you notice any typos or issues, please report them on GitHub or email me at sven.otto@uni-koeln.de.\nI thank Leonhard Sinzig for pointing out several typos.",
     "crumbs": [
       "Welcome"
     ]
