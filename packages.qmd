@@ -50,7 +50,7 @@ install.packages("remotes")
 remotes::install_github("ottosven/TeachData")
 ```
 
-Let's have a closer look at the data from the `teachingdata` package.
+Let's have a closer look at the data from the `TeachData` package.
 
 ```{r, fig.height=4}
 library(TeachData)

@@ -193,7 +193,7 @@ mydataframe = data.frame(
 
 The `data()` command lists all sample data sets available in R.
 Let us have a look at the dataset `mtcars`.
-It is a `dara.frame` object and contains data on several aspects of 32 automobiles from 1974.
+It is a `data.frame` object and contains data on several aspects of 32 automobiles from 1974.
 
 ```{r}
 mtcars
